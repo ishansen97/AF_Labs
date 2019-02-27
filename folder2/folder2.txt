@@ -1,1 +1,2 @@
 Hello....this is the 2nd text file i created
+This is the part i edited from the github

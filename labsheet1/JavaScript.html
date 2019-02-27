@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Labsheet 1</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //exercise 1
+        var printHello = function () {
+            console.log('Hello World');
+        }
+
+        function printFunction(parameter) {
+            parameter();
+        }
+
+        printFunction(printHello);
+
+        //exercise 2
+        var object = {
+            name: "Ishan",
+            age: 22,
+            university: "SLIIT",
+            details: function () {
+                console.log('Name : ' + this.name + '\nAge : ' + this.age + '\nUniversity : ' + this.university);
+            }
+        };
+
+        object.details();
+
+        //exercise 3
+        var vehicleName = "Car";
+
+        function printVehicleName() {
+            console.log(this.vehicleName);
+        }
+
+        var Vehicle = {
+            vehicleName: "Van",
+            getVehicleName: printVehicleName
+        }
+
+        printVehicleName();
+        Vehicle.getVehicleName();
+
+        //exercise 4
+        function taxPercentage(tax) {
+            return function (amount) {
+                return amount + amount * tax / 100;
+            }
+        }
+
+        var tax1 = taxPercentage(2.5);
+        var amount1 = tax1(1000);
+
+        console.log('Amount : ' + amount1);
+
+        //exercise 5
+
+        //method 1 : using 'fetch' API
+
+        function fetchAPIUsers() {
+            fetch('https://api.github.com/users')
+                .then(response => {return response.json()})
+                .then(json => console.log(json))
+        }
+
+        fetchAPIUsers();
+
+        //method 2 : using plain JavaScript (XMLHttpRequest)
+
+        function getAPIUsers(url, callback) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.open('GET', url, true);
+
+            xhttp.onload = function () {
+                if (this.status == 200) {
+                    var jsonData = JSON.parse(this.responseText);
+                    callback(jsonData);
+                }
+            }
+            xhttp.send();
+        }
+
+        function printAPIUsers(data) {
+            console.log(data);
+        }
+
+        getAPIUsers('https://api.github.com/users', printAPIUsers);
+
+
+
+    </script>
+</body>
+</html>

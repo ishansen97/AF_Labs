@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demonstrate Callbacks</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // function placeAnOrder(customerNum) {
+        //     console.log("Customer Order : " + customerNum);
+        //
+        //     cookAndDeliverFood(function () {
+        //         displayMessage(customerNum);
+        //     });
+        // }
+        //
+        // function cookAndDeliverFood(callback) {
+        //     setTimeout(callback, 4000);
+        // }
+        //
+        // function displayMessage(num) {
+        //     console.log('Delivered Order number : ' + num);
+        // }
+        //
+        // placeAnOrder(1);
+        // placeAnOrder(2);
+        // placeAnOrder(3);
+        // placeAnOrder(4);
+        // placeAnOrder(5);
+        // placeAnOrder(6);
+        // placeAnOrder(7);
+        // placeAnOrder(8);
+        // placeAnOrder(9);
+        // placeAnOrder(10);
+
+        var array = [
+            {
+                name: "Ishan",
+                age: 22,
+                printDetailsInner: printDetails
+            },
+            {
+                name: "Kavinda",
+                age: 23,
+                printDetailsInner: printDetails
+            },
+            {
+                name: "Uditha",
+                age: 24,
+                printDetailsInner: printDetails
+            },
+            {
+                name: "kirul",
+                age: 25,
+                printDetailsInner: printDetails
+            }
+        ];
+
+        function printDetails() {
+            console.log("Name : " + this.name + "\tAge : " + this.age);
+        }
+
+        var eachObj = (value, i) => {
+            console.log("Index : " + i + "\t Value : " + value.name);
+        };
+
+
+        // array.map(eachObj);
+        // array.forEach(eachObj);
+
+        // function eachObj(value, i) {
+        //     console.log("Index : " + i + "\t Value : " + value.name);
+        // }
+
+        // var elements = [
+        //     "Hydrogen",
+        //     "Helium",
+        //     "Lithium",
+        //     "Sodium"
+        // ];
+        //
+        // elements.map(elem => console.log("Lenght of the element : " + elem.length));
+
+        // var arr = [1,2,3,4,5];
+        // var func = () => arr[0];
+        //
+        // function test(num) {
+        //     var inner = (...params) => params[0] + num;
+        //     return inner(20);
+        // }
+        //
+        // console.log(test(10));
+
+        function addNumbers(array) {
+            let sum = 0;
+            array.map(number => {sum += number});
+            return sum;
+        }
+
+        var array = [1,3,2,6,5,4,7,56,34,26,78,33,89];
+        var total = addNumbers(array);
+        array.push(total);
+        console.log("Total : " + total + "\t Array :" + array);
+
+        function findFactorial(num) {
+            if (num === 0 || num === 1)
+                return 1;
+            else
+                return findFactorial(num - 1) * num;
+        }
+
+        let factorial = findFactorial(6);
+        console.log("Factorial of 6 = " + factorial);
+
+
+
+
+    </script>
+</body>
+</html>
